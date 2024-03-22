@@ -27,7 +27,8 @@ public class ArrayCalculator {
         System.out.println("2. Subtraction");
         System.out.println("3. Multiplication");
         System.out.println("4. Division");
-        System.out.println("5. Exit");
+        System.out.println("5. Average");
+        System.out.println("6. Exit");
 
         int choice = scanner.nextInt();
 
@@ -45,10 +46,13 @@ public class ArrayCalculator {
                 performDivision(array1, array2);
                 break;
             case 5:
+                calculateAverage(array1, array2);
+                break;
+            case 6:
                 System.out.println("Exiting...");
                 break;
             default:
-                System.out.println("Invalid choice. Please select a number from 1 to 5.");
+                System.out.println("Invalid choice. Please select a number from 1 to 6.");
         }
     }
 
@@ -106,6 +110,20 @@ public class ArrayCalculator {
         }
         System.out.println("Result of division:");
         printArray(result);
+    }
+
+    private static void calculateAverage(int[] array1, int[] array2) {
+        int sum1 = 0, sum2 = 0;
+        for (int num : array1) {
+            sum1 += num;
+        }
+        for (int num : array2) {
+            sum2 += num;
+        }
+        double avg1 = (double) sum1 / array1.length;
+        double avg2 = (double) sum2 / array2.length;
+        System.out.println("Average of array1: " + avg1);
+        System.out.println("Average of array2: " + avg2);
     }
 
     private static void printArray(int[] array) {
