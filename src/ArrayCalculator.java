@@ -31,7 +31,8 @@ public class ArrayCalculator {
         System.out.println("5. Average");
         System.out.println("6. Sort");
         System.out.println("7. Find minimum number");
-        System.out.println("8. Exit");
+        System.out.println("8. Find maximum number");
+        System.out.println("9. Exit");
 
         int choice = scanner.nextInt();
 
@@ -58,10 +59,13 @@ public class ArrayCalculator {
                 findMinimum(array1, array2);
                 break;
             case 8:
+                findMaximum(array1, array2);
+                break;
+            case 9:
                 System.out.println("Exiting...");
                 break;
             default:
-                System.out.println("Invalid choice. Please select a number from 1 to 8.");
+                System.out.println("Invalid choice. Please select a number from 1 to 9.");
         }
     }
 
@@ -150,6 +154,14 @@ public class ArrayCalculator {
 
         System.out.println("Minimum number in array1: " + min1);
         System.out.println("Minimum number in array2: " + min2);
+    }
+
+    private static void findMaximum(int[] array1, int[] array2) {
+        int max1 = Arrays.stream(array1).max().getAsInt();
+        int max2 = Arrays.stream(array2).max().getAsInt();
+
+        System.out.println("Maximum number in array1: " + max1);
+        System.out.println("Maximum number in array2: " + max2);
     }
 
     private static void printArray(int[] array) {
