@@ -30,7 +30,8 @@ public class ArrayCalculator {
         System.out.println("4. Division");
         System.out.println("5. Average");
         System.out.println("6. Sort");
-        System.out.println("7. Exit");
+        System.out.println("7. Find minimum number");
+        System.out.println("8. Exit");
 
         int choice = scanner.nextInt();
 
@@ -54,10 +55,13 @@ public class ArrayCalculator {
                 sortArray(array1, array2);
                 break;
             case 7:
+                findMinimum(array1, array2);
+                break;
+            case 8:
                 System.out.println("Exiting...");
                 break;
             default:
-                System.out.println("Invalid choice. Please select a number from 1 to 7.");
+                System.out.println("Invalid choice. Please select a number from 1 to 8.");
         }
     }
 
@@ -130,6 +134,7 @@ public class ArrayCalculator {
         System.out.println("Average of array1: " + avg1);
         System.out.println("Average of array2: " + avg2);
     }
+
     private static void sortArray(int[] array1, int[] array2) {
         Arrays.sort(array1);  // Use Arrays.sort for efficient sorting
         Arrays.sort(array2);
@@ -137,6 +142,14 @@ public class ArrayCalculator {
         System.out.println("Sorted arrays:");
         System.out.println("Array 1: " + Arrays.toString(array1));
         System.out.println("Array 2: " + Arrays.toString(array2));
+    }
+
+    private static void findMinimum(int[] array1, int[] array2) {
+        int min1 = Arrays.stream(array1).min().getAsInt();
+        int min2 = Arrays.stream(array2).min().getAsInt();
+
+        System.out.println("Minimum number in array1: " + min1);
+        System.out.println("Minimum number in array2: " + min2);
     }
 
     private static void printArray(int[] array) {
