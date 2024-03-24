@@ -29,6 +29,7 @@ public class ArrayCalculator {
         System.out.println("4. Division");
         System.out.println("5. Average");
         System.out.println("6. Exit");
+        System.out.println("test");
 
         int choice = scanner.nextInt();
 
