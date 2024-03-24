@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class ArrayCalculator {
@@ -28,7 +29,8 @@ public class ArrayCalculator {
         System.out.println("3. Multiplication");
         System.out.println("4. Division");
         System.out.println("5. Average");
-        System.out.println("6. Exit");
+        System.out.println("6. Sort");
+        System.out.println("7. Exit");
 
         int choice = scanner.nextInt();
 
@@ -49,10 +51,13 @@ public class ArrayCalculator {
                 calculateAverage(array1, array2);
                 break;
             case 6:
+                sortArray(array1, array2);
+                break;
+            case 7:
                 System.out.println("Exiting...");
                 break;
             default:
-                System.out.println("Invalid choice. Please select a number from 1 to 6.");
+                System.out.println("Invalid choice. Please select a number from 1 to 7.");
         }
     }
 
@@ -125,10 +130,18 @@ public class ArrayCalculator {
         System.out.println("Average of array1: " + avg1);
         System.out.println("Average of array2: " + avg2);
     }
+    private static void sortArray(int[] array1, int[] array2) {
+        Arrays.sort(array1);  // Use Arrays.sort for efficient sorting
+        Arrays.sort(array2);
+
+        System.out.println("Sorted arrays:");
+        System.out.println("Array 1: " + Arrays.toString(array1));
+        System.out.println("Array 2: " + Arrays.toString(array2));
+    }
 
     private static void printArray(int[] array) {
-        for (int i = 0; i < array.length; i++) {
-            System.out.print(array[i] + " ");
+        for (int j : array) {
+            System.out.print(j + " ");
         }
         System.out.println();
     }
