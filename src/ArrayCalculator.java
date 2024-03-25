@@ -140,12 +140,36 @@ public class ArrayCalculator {
     }
 
     private static void sortArray(int[] array1, int[] array2) {
-        Arrays.sort(array1);  // Use Arrays.sort for efficient sorting
-        Arrays.sort(array2);
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter sorting order ('asc' for ascending, 'desc' for descending):");
+        String sortOrder = scanner.next();
+
+        switch (sortOrder) {
+            case "asc":
+                Arrays.sort(array1);
+                Arrays.sort(array2);
+                break;
+            case "desc":
+                Arrays.sort(array1);
+                Arrays.sort(array2);
+                reverseArray(array1);
+                reverseArray(array2);
+                break;
+            default:
+                System.out.println("Invalid sorting order. Please specify 'asc' for ascending or 'desc' for descending.");
+                return;
+        }
 
         System.out.println("Sorted arrays:");
         System.out.println("Array 1: " + Arrays.toString(array1));
         System.out.println("Array 2: " + Arrays.toString(array2));
+    }
+            private static void reverseArray(int[] array) {
+        for (int i = 0; i < array.length / 2; i++) {
+            int temp = array[i];
+            array[i] = array[array.length - 1 - i];
+            array[array.length - 1 - i] = temp;
+        }
     }
 
     private static void findMinimum(int[] array1, int[] array2) {
