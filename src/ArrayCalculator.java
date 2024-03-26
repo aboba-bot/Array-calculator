@@ -10,18 +10,8 @@ public class ArrayCalculator {
         System.out.println("Please enter the length of the arrays:");
         int length = scanner.nextInt();
 
-        int[] array1 = new int[length];
-        int[] array2 = new int[length];
-
-        System.out.println("Enter the elements of the first array:");
-        for (int i = 0; i < length; i++) {
-            array1[i] = scanner.nextInt();
-        }
-
-        System.out.println("Enter the elements of the second array:");
-        for (int i = 0; i < length; i++) {
-            array2[i] = scanner.nextInt();
-        }
+        int[] array1 = parseArrayInput(length, "first");
+        int[] array2 = parseArrayInput(length, "second");
 
         System.out.println("Please choose an operation:");
         System.out.println("1. Addition");
@@ -69,11 +59,26 @@ public class ArrayCalculator {
                 System.out.println("Exiting...");
                 break;
             default:
-                System.out.println("Invalid choice. Please select a number from 1 to 9.");
+                System.out.println("Invalid choice. Please select a number from 1 to 10.");
         }
     }
 
-    private static void performAddition(int[] array1, int[] array2) {
+    private static int[] parseArrayInput(int length, String ordinal) { //"Парсінг" вхідних даних
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the elements of the " + ordinal + " array separated by spaces:");
+        int[] array = new int[length];
+        String input = scanner.nextLine();
+        String[] parts = input.split("\\s+");
+        if (parts.length != length) {
+            System.out.println("Invalid input length.");
+            System.exit(1);
+        }
+        for (int i = 0; i < length; i++) {
+            array[i] = Integer.parseInt(parts[i]);
+        }
+        return array;
+    }
+    private static void performAddition(int[] array1, int[] array2) { //Розрахунок суми введених чисел
         if (array1.length != array2.length) {
             System.out.println("Arrays must have the same length for addition.");
             return;
@@ -86,7 +91,7 @@ public class ArrayCalculator {
         printArray(result);
     }
 
-    private static void performSubtraction(int[] array1, int[] array2) {
+    private static void performSubtraction(int[] array1, int[] array2) { //Операція віднімання елементів двох масивів
         if (array1.length != array2.length) {
             System.out.println("Arrays must have the same length for subtraction.");
             return;
@@ -99,7 +104,7 @@ public class ArrayCalculator {
         printArray(result);
     }
 
-    private static void performMultiplication(int[] array1, int[] array2) {
+    private static void performMultiplication(int[] array1, int[] array2) { //Операція множення елементів двох масивів
         if (array1.length != array2.length) {
             System.out.println("Arrays must have the same length for multiplication.");
             return;
@@ -112,7 +117,7 @@ public class ArrayCalculator {
         printArray(result);
     }
 
-    private static void performDivision(int[] array1, int[] array2) {
+    private static void performDivision(int[] array1, int[] array2) { //Операція ділення елементів двох масивів
         if (array1.length != array2.length) {
             System.out.println("Arrays must have the same length for division.");
             return;
@@ -129,7 +134,7 @@ public class ArrayCalculator {
         printArray(result);
     }
 
-    private static void calculateAverage(int[] array1, int[] array2) {
+    private static void calculateAverage(int[] array1, int[] array2) { //Розрахунок середнього арифметичного введених чисел
         int sum1 = 0, sum2 = 0;
         for (int num : array1) {
             sum1 += num;
@@ -143,17 +148,17 @@ public class ArrayCalculator {
         System.out.println("Average of array2: " + avg2);
     }
 
-    private static void sortArray(int[] array1, int[] array2) {
+    private static void sortArray(int[] array1, int[] array2) { //Сортування масиву за зростанням та за спаданням
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter sorting order ('asc' for ascending, 'desc' for descending):");
         String sortOrder = scanner.next();
 
         switch (sortOrder) {
-            case "asc":
+            case "asc": //"ascending" (зростання)
                 Arrays.sort(array1);
                 Arrays.sort(array2);
                 break;
-            case "desc":
+            case "desc": //"descending" (спадання)
                 Arrays.sort(array1);
                 Arrays.sort(array2);
                 reverseArray(array1);
@@ -176,7 +181,7 @@ public class ArrayCalculator {
         }
     }
 
-    private static void findMinimum(int[] array1, int[] array2) {
+    private static void findMinimum(int[] array1, int[] array2) { //Пошук найменшого числа
         int min1 = Arrays.stream(array1).min().getAsInt();
         int min2 = Arrays.stream(array2).min().getAsInt();
 
@@ -184,7 +189,7 @@ public class ArrayCalculator {
         System.out.println("Minimum number in array2: " + min2);
     }
 
-    private static void findMaximum(int[] array1, int[] array2) {
+    private static void findMaximum(int[] array1, int[] array2) { //Пошук найбільшого числа
         int max1 = Arrays.stream(array1).max().getAsInt();
         int max2 = Arrays.stream(array2).max().getAsInt();
 
@@ -192,7 +197,7 @@ public class ArrayCalculator {
         System.out.println("Maximum number in array2: " + max2);
     }
 
-    private static void countNumbers(int[] array1, int[] array2) {
+    private static void countNumbers(int[] array1, int[] array2) { //Розрахунок кількості введених чисел
         System.out.println("Number of elements in array1: " + array1.length);
         System.out.println("Number of elements in array2: " + array2.length);
     }
@@ -201,7 +206,7 @@ public class ArrayCalculator {
 
 
 
-    private static void printArray(int[] array) {
+    private static void printArray(int[] array) { //Допоміжна функція виводить масив на екран
         for (int j : array) {
             System.out.print(j + " ");
         }
