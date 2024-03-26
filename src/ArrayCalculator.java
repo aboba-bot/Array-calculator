@@ -32,7 +32,8 @@ public class ArrayCalculator {
         System.out.println("6. Sort");
         System.out.println("7. Find minimum number");
         System.out.println("8. Find maximum number");
-        System.out.println("9. Exit");
+        System.out.println("9. Calculation of the number of entered numbers");
+        System.out.println("10. Exit");
 
         int choice = scanner.nextInt();
 
@@ -62,6 +63,9 @@ public class ArrayCalculator {
                 findMaximum(array1, array2);
                 break;
             case 9:
+                countNumbers(array1, array2);
+                break;
+            case 10:
                 System.out.println("Exiting...");
                 break;
             default:
@@ -187,6 +191,15 @@ public class ArrayCalculator {
         System.out.println("Maximum number in array1: " + max1);
         System.out.println("Maximum number in array2: " + max2);
     }
+
+    private static void countNumbers(int[] array1, int[] array2) {
+        System.out.println("Number of elements in array1: " + array1.length);
+        System.out.println("Number of elements in array2: " + array2.length);
+    }
+
+
+
+
 
     private static void printArray(int[] array) {
         for (int j : array) {
