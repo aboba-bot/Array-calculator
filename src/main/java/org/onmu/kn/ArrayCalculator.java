@@ -80,6 +80,7 @@ public class ArrayCalculator {
         }
         return array;
     }
+
     private static void performAddition(int[] array1, int[] array2) { //Розрахунок суми введених чисел
         if (array1.length != array2.length) {
             System.out.println("Arrays must have the same length for addition.");
@@ -136,7 +137,7 @@ public class ArrayCalculator {
         printArray(result);
     }
 
-    private static void calculateAverage(int[] array1, int[] array2) { //Розрахунок середнього арифметичного введених чисел
+    public static double[] calculateAverage(int[] array1, int[] array2) { //Розрахунок середнього арифметичного введених чисел
         int sum1 = 0, sum2 = 0;
         for (int num : array1) {
             sum1 += num;
@@ -148,7 +149,9 @@ public class ArrayCalculator {
         double avg2 = (double) sum2 / array2.length;
         System.out.println("Average of array1: " + avg1);
         System.out.println("Average of array2: " + avg2);
+        return new double[]{avg1, avg2};
     }
+
 
     private static void sortArray(int[] array1, int[] array2) { //Сортування масиву за зростанням та за спаданням
         Scanner scanner = new Scanner(System.in);
@@ -175,6 +178,7 @@ public class ArrayCalculator {
         System.out.println("Array 1: " + Arrays.toString(array1));
         System.out.println("Array 2: " + Arrays.toString(array2));
     }
+
     private static void reverseArray(int[] array) {
         for (int i = 0; i < array.length / 2; i++) {
             int temp = array[i];
@@ -207,9 +211,6 @@ public class ArrayCalculator {
         System.out.println("Number of elements in array1: " + array1.length);
         System.out.println("Number of elements in array2: " + array2.length);
     }
-
-
-
 
 
     private static void printArray(int[] array) { //Допоміжна функція виводить масив на екран
