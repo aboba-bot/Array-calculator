@@ -8,8 +8,8 @@ public class FindMaximumTest {
     @Test
     public void testFindMaximum() {
         int[] array1 = {5, 10, 15, 20};
-        int[] array2 = {8, 12, 16, 24};
+        int[] array2 = {8, 12, 16, 28};
 
-        assertEquals(24, ArrayCalculator.findMaximum(array1, array2));
+        assertEquals(28, ArrayCalculator.findMaximum(array1, array2));
     }
 }
