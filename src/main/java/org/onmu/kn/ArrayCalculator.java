@@ -187,12 +187,16 @@ public class ArrayCalculator {
         }
     }
 
-    private static void findMinimum(int[] array1, int[] array2) { //Пошук найменшого числа
+    public static int findMinimum(int[] array1, int[] array2) { //Пошук найменшого числа
         int min1 = Arrays.stream(array1).min().getAsInt();
         int min2 = Arrays.stream(array2).min().getAsInt();
+        int min = Math.min(min1, min2);
 
         System.out.println("Minimum number in array1: " + min1);
         System.out.println("Minimum number in array2: " + min2);
+        System.out.println("Minimum of array1 and array2: " + min);
+
+        return min;
     }
 
     public static int findMaximum(int[] array1, int[] array2) { //Пошук найбільшого числа
