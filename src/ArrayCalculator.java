@@ -57,7 +57,11 @@ public class ArrayCalculator {
                 countNumbers(array1, array2);
                 break;
             case 10:
-                deletePositiveNumbers(array1, array2);
+                array1 = PositiveNumberDeleter.deletePositiveNumbers(array1);
+                array2 = PositiveNumberDeleter.deletePositiveNumbers(array2);
+                System.out.println("Arrays after deleting positive numbers:");
+                System.out.println("Array 1: " + Arrays.toString(array1));
+                System.out.println("Array 2: " + Arrays.toString(array2));
                 break;
             case 11:
                 System.out.println("Exiting...");
@@ -204,38 +208,6 @@ public class ArrayCalculator {
     private static void countNumbers(int[] array1, int[] array2) { //Розрахунок кількості введених чисел
         System.out.println("Number of elements in array1: " + array1.length);
         System.out.println("Number of elements in array2: " + array2.length);
-    }
-
-    private static void deletePositiveNumbers(int[] array1, int[] array2) {
-        array1 = removePositiveNumbers(array1);
-        array2 = removePositiveNumbers(array2);
-
-        System.out.println("Arrays after deleting positive numbers:");
-        System.out.println("Array 1: " + Arrays.toString(array1));
-        System.out.println("Array 2: " + Arrays.toString(array2));
-    }
-
-    private static int[] removePositiveNumbers(int[] array) {
-        // Count the number of negative or zero elements
-        int count = 0;
-        for (int num : array) {
-            if (num > 0) {
-                count++;
-            }
-        }
-
-        // Create a new array with size equal to the count of negative or zero elements
-        int[] result = new int[array.length - count];
-        int index = 0;
-
-        // Copy non-positive elements to the result array
-        for (int num : array) {
-            if (num <= 0) {
-                result[index++] = num;
-            }
-        }
-
-        return result;
     }
 
 
