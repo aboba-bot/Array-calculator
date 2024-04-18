@@ -23,7 +23,8 @@ public class ArrayCalculator {
         System.out.println("7. Find minimum number");
         System.out.println("8. Find maximum number");
         System.out.println("9. Calculation of the number of entered numbers");
-        System.out.println("10. Exit");
+        System.out.println("10. Deleting from an array of positive numbers");
+        System.out.println("11. Exit");
 
         int choice = scanner.nextInt();
 
@@ -56,6 +57,9 @@ public class ArrayCalculator {
                 countNumbers(array1, array2);
                 break;
             case 10:
+                deletePositiveNumbers(array1, array2);
+                break;
+            case 11:
                 System.out.println("Exiting...");
                 break;
             default:
@@ -202,8 +206,37 @@ public class ArrayCalculator {
         System.out.println("Number of elements in array2: " + array2.length);
     }
 
+    private static void deletePositiveNumbers(int[] array1, int[] array2) {
+        array1 = removePositiveNumbers(array1);
+        array2 = removePositiveNumbers(array2);
 
+        System.out.println("Arrays after deleting positive numbers:");
+        System.out.println("Array 1: " + Arrays.toString(array1));
+        System.out.println("Array 2: " + Arrays.toString(array2));
+    }
 
+    private static int[] removePositiveNumbers(int[] array) {
+        // Count the number of negative or zero elements
+        int count = 0;
+        for (int num : array) {
+            if (num > 0) {
+                count++;
+            }
+        }
+
+        // Create a new array with size equal to the count of negative or zero elements
+        int[] result = new int[array.length - count];
+        int index = 0;
+
+        // Copy non-positive elements to the result array
+        for (int num : array) {
+            if (num <= 0) {
+                result[index++] = num;
+            }
+        }
+
+        return result;
+    }
 
 
     private static void printArray(int[] array) { //Допоміжна функція виводить масив на екран
