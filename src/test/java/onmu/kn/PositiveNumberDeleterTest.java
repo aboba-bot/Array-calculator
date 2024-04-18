@@ -41,7 +41,7 @@ public class PositiveNumberDeleterTest {
         int[] inputArray = {0, -1, -2, -3, -4};
 
         // Очікуваний результат після видалення позитивних чисел (масив залишається незмінним)
-        int[] expected = {0, -1, -2, -3, -4};
+        int[] expected = {0, -8, -2, -3, -4};
 
         // Викликаємо метод, що перевіряємо
         int[] result = PositiveNumberDeleter.deletePositiveNumbers(inputArray);

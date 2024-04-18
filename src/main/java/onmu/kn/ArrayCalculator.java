@@ -212,7 +212,6 @@ public class ArrayCalculator {
         System.out.println("Number of elements in array2: " + array2.length);
     }
 
-
     private static void printArray(int[] array) { //Допоміжна функція виводить масив на екран
         for (int j : array) {
             System.out.print(j + " ");

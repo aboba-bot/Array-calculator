@@ -9,7 +9,6 @@ public class PositiveNumberDeleter {
                 count++;
             }
         }
-
         // Create a new array with size equal to the count of non-positive elements
         int[] result = new int[array.length - count];
         int index = 0;
