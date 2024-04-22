@@ -59,11 +59,7 @@ public class ArrayCalculator {
                 countNumbers(array1, array2);
                 break;
             case 10:
-                array1 = PositiveNumberDeleter.deletePositiveNumbers(array1);
-                array2 = PositiveNumberDeleter.deletePositiveNumbers(array2);
-                System.out.println("Arrays after deleting positive numbers:");
-                System.out.println("Array 1: " + Arrays.toString(array1));
-                System.out.println("Array 2: " + Arrays.toString(array2));
+                deletePositiveNumbersAndPrint(array1, array2);
                 break;
             case 11:
                 System.out.println("Exiting...");
@@ -210,6 +206,29 @@ public class ArrayCalculator {
     private static void countNumbers(int[] array1, int[] array2) { //Розрахунок кількості введених чисел
         System.out.println("Number of elements in array1: " + array1.length);
         System.out.println("Number of elements in array2: " + array2.length);
+    }
+
+    private static void deletePositiveNumbersAndPrint(int[] array1, int[] array2) {
+        // Викликаємо метод deletePositiveNumbers з класу PositiveNumberDeleter для обох масивів
+        int[][] deletionResult1 = PositiveNumberDeleter.deletePositiveNumbers(array1);
+        int[][] deletionResult2 = PositiveNumberDeleter.deletePositiveNumbers(array2);
+
+        // Отримуємо оновлені масиви після видалення позитивних чисел
+        array1 = deletionResult1[0];
+        array2 = deletionResult2[0];
+
+        // Отримуємо масиви позитивних чисел, які були видалені
+        int[] positiveNumbers1 = deletionResult1[1];
+        int[] positiveNumbers2 = deletionResult2[1];
+
+        // Виводимо видалені числа на екран
+        System.out.println("Positive numbers deleted from array 1: " + Arrays.toString(positiveNumbers1));
+        System.out.println("Positive numbers deleted from array 2: " + Arrays.toString(positiveNumbers2));
+
+        // Виводимо очищені масиви на екран
+        System.out.println("Arrays after deleting positive numbers:");
+        System.out.println("Array 1: " + Arrays.toString(array1));
+        System.out.println("Array 2: " + Arrays.toString(array2));
     }
 
     private static void printArray(int[] array) { //Допоміжна функція виводить масив на екран
