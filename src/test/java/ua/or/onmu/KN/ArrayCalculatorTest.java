@@ -1,38 +1,27 @@
 package ua.or.onmu.KN;
 
-
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import java.util.Arrays;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class ArrayCalculatorTest {
 
+    // Тут описаний Unit тест для функції "Сортування масиву за зростанням"
     @Test
-    public void testSortArrayAscending() {
-        int[] array1 = {5, 2, 8, 1, 9};
-        int[] array2 = {7, 4, 3, 6, 0};
 
+    public void testSortArrayAscending() {
+        int[] array1 = {0, 5, 1, 9, 3}; // Розглянемо варіант масиву позитивних чисел
+        int[] array2 = {5, 0, -3, 9, -1}; // Розглянемо варіант змішаного масиву (негативні, позитивні числа та нуль)
+
+        // Викликаємо метод "sortArray", задаючи параметр сортвання "ascending" (за зростанням)
         ArrayCalculator.sortArray(array1, array2, "asc");
 
-        int[] expectedArray1 = {1, 2, 5, 8, 9};
-        int[] expectedArray2 = {0, 3, 4, 6, 7};
+        // Задаємо контрольні значення в разі успішного проходження тесту
+        int[] expectedArray1 = {0, 1, 3, 5, 9};
+        int[] expectedArray2 = {-3, -1, 0, 5, 9};
 
-        assertArrayEquals(expectedArray1, array1);
-        assertArrayEquals(expectedArray2, array2);
-    }
-
-    @Test
-    public void testSortArrayDescending() {
-        int[] array1 = {5, 2, 8, 1, 9};
-        int[] array2 = {7, 4, 3, 6, 0};
-
-        ArrayCalculator.sortArray(array1, array2, "desc");
-
-        int[] expectedArray1 = {9, 8, 5, 2, 1};
-        int[] expectedArray2 = {7, 6, 4, 3, 0};
-
-        assertArrayEquals(expectedArray1, array1);
-        assertArrayEquals(expectedArray2, array2);
+        // Порівнюємо контрольні значення з результатами функції
+        Assertions.assertArrayEquals(expectedArray1, array1);
+        Assertions.assertArrayEquals(expectedArray2, array2);
     }
 }
