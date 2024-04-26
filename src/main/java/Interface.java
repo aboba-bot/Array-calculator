@@ -65,8 +65,9 @@ public class Interface extends JFrame {
         deleteButton1.setBounds(342, 139, 50, 30);
         contentPane.add(deleteButton1);
         deleteButton1.addActionListener(e -> {
-            textField1.setText(""); // Очистка текстового поля
+            textField2.setText(""); // Очистка текстового поля textField1
         });
+
 
         JButton historyButton2 = new JButton("\uD83D\uDD50"); //тут
         historyButton2.setBounds(418, 139, 50, 30);
@@ -142,8 +143,9 @@ public class Interface extends JFrame {
         deleteButton2.setBounds(75, 139, 50, 30);
         contentPane.add(deleteButton2);
         deleteButton2.addActionListener(e -> {
-            textField1.setText(""); // Очистка текстового поля
+            textField1.setText(""); // Очистка текстового поля textField2
         });
+
 
         add(contentPane, BorderLayout.CENTER);
 
@@ -177,8 +179,8 @@ public class Interface extends JFrame {
         array1 = PositiveNumberDeleter.deletePositiveNumbers(array1);
         array2 = PositiveNumberDeleter.deletePositiveNumbers(array2);
 
-        int[] deletedFromArray1 = getDeletedPositiveNumbers(array1, array1);
-        int[] deletedFromArray2 = getDeletedPositiveNumbers(array2, array2);
+        int[] deletedFromArray1 = getDeletedPositiveNumbers(parseArrayInput(text1), array1);
+        int[] deletedFromArray2 = getDeletedPositiveNumbers(parseArrayInput(text2), array2);
 
         textField1.setText(arrayToString(array1));
         textField2.setText(arrayToString(array2));
