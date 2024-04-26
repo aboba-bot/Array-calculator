@@ -77,13 +77,6 @@ public class Interface extends JFrame {
         openbutton2.setBounds(490, 139, 50, 30);
         contentPane.add(openbutton2);
 
-        JButton historyButton3 = new JButton("\uD83D\uDD50"); //тут
-        historyButton3.setBounds(152, 139, 50, 30);
-        contentPane.add(historyButton3);
-
-        JButton openbutton1 = new JButton("\uD83D\uDCC1");
-        openbutton1.setBounds(223, 139, 50, 30);//ещё подвинь
-        contentPane.add(openbutton1);
 
         JButton copyButton = new JButton("\uD83D\uDCB0"); // Emoji для копирования в буфер обмена
         copyButton.setBounds(150, 139, 50, 30);
