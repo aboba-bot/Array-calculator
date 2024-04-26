@@ -90,7 +90,7 @@ public class Interface extends JFrame {
         });
 
         JButton pasteButton = new JButton("\uD83D\uDCCB"); // Emoji для вставки из буфера обмена
-        pasteButton.setBounds(218, 139, 50, 30); //ещё подвинь
+        pasteButton.setBounds(222, 139, 50, 30); //ещё подвинь
         contentPane.add(pasteButton);
         pasteButton.addActionListener(e -> {
             Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
